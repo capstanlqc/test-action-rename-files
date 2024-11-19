@@ -13,12 +13,15 @@ jobs:
       # Step 1: Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          node-version: '20' # Specify Node.js 20 explicitly
 
       # Step 2: Set up Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.12' # Adjust to your Python version
+          node-version: '20'    # Specify Node.js 20 explicitly
 
       # Step 3: Run the script
       - name: Execute Python script
