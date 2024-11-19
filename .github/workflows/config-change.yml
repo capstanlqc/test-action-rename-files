@@ -1,0 +1,27 @@
+name: Process Config Change
+
+on:
+  push:
+    paths:
+      - "config.txt" # Trigger workflow only if config.txt changes
+
+jobs:
+  process-config:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12' # Adjust to your Python version
+
+      # Step 3: Run the script
+      - name: Execute Python script
+        run: |
+          chmod +x script.py # Ensure script is executable
+          python script.py file.tmx
